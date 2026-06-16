@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Barber — 4-Week Staff Training Curriculum</title>
+<style>
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --gold: #C9A84C;
+    --gold-light: #F0D9A0;
+    --grey-dark: #2a2a2a;
+    --grey-mid: #444444;
+    --grey-light: #f5f5f5;
+    --border: #e0e0e0;
+    --contractor-bg: #fff8ee;
+    --contractor-border: #C9A84C;
+    --employee-bg: #f0f4ff;
+    --employee-border: #4a6cf7;
+    --green: #2d8a4e;
+    --green-light: #edf7f1;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--black);
+    color: var(--white);
+    padding: 72px 48px 56px;
+    text-align: center;
+    border-bottom: 6px solid var(--gold);
+  }
+  .cover .logo-line {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cover h1 span { color: var(--gold); }
+  .cover .subtitle {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 36px;
+  }
+  .cover .meta {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .cover .meta-item { text-align: center; }
+  .cover .meta-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cover .meta-value { font-size: 14px; color: #ddd; }
+
+  /* ── LAYOUT ── */
+  .doc-body { max-width: 1000px; margin: 0 auto; padding: 48px 32px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .section-header .num {
+    background: var(--gold);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .section-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  /* ── OVERVIEW BOX ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .overview-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    background: var(--grey-light);
+  }
+  .overview-card .oc-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 6px;
+  }
+  .overview-card .oc-value {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* ── TEAM TABLE ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
+
+  .team-box {
+    border-radius: 8px;
+    padding: 20px 24px;
+    border-left: 4px solid;
+  }
+  .team-box.contractor {
+    background: var(--contractor-bg);
+    border-color: var(--contractor-border);
+  }
+  .team-box.employee {
+    background: var(--employee-bg);
+    border-color: var(--employee-border);
+  }
+  .team-box h3 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .team-box.contractor h3 { color: var(--contractor-border); }
+  .team-box.employee h3 { color: #4a6cf7; }
+  .team-box ul { list-style: none; padding: 0; }
+  .team-box ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    font-size: 14px;
+  }
+  .team-box ul li:last-child { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 8px;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .badge.c { background: #fff3d9; color: #9a6e00; }
+  .badge.e { background: #dce4ff; color: #2e4fcc; }
+
+  /* ── PRINCIPLES ── */
+  .principles-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .principle {
+    padding: 14px 18px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .principle strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* ── WEEK CARDS ── */
+  .week-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .week-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 24px 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .week-header .wh-left { }
+  .week-header .wk-num {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .week-header h3 { font-size: 22px; font-weight: 700; line-height: 1.2; }
+  .week-header .wk-theme {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 6px;
+  }
+  .week-header .wh-right { text-align: right; }
+  .week-header .wk-focus-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .week-header .wk-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .pillar-tag {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .week-body { padding: 24px 32px; }
+
+  .week-objectives {
+    background: var(--grey-light);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border-radius: 0 6px 6px 0;
+  }
+  .week-objectives h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 10px;
+  }
+  .week-objectives ul {
+    list-style: none;
+    padding: 0;
+  }
+  .week-objectives ul li {
+    padding: 4px 0;
+    font-size: 14px;
+  }
+  .week-objectives ul li::before {
+    content: "→ ";
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── DAY SCHEDULE ── */
+  .days-grid { display: flex; flex-direction: column; gap: 14px; }
+  .day-row {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+  }
+  @media (max-width: 600px) { .day-row { grid-template-columns: 1fr; } }
+
+  .day-label {
+    background: var(--grey-dark);
+    color: var(--white);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .day-label .day-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .day-label .day-tag {
+    font-size: 10px;
+    color: var(--gold);
+    margin-top: 3px;
+    letter-spacing: 1px;
+  }
+
+  .day-content { padding: 14px 20px; }
+  .day-content .focus {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .checkpoint-list { list-style: none; padding: 0; }
+  .checkpoint-list li {
+    font-size: 13px;
+    padding: 3px 0;
+    color: var(--grey-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .checkpoint-list li::before {
+    content: "☐";
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── RESPONSIBLE PARTIES ── */
+  .responsible-section { margin-top: 20px; }
+  .responsible-section h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 10px;
+  }
+  .responsible-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .r-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .r-card .r-name { font-weight: 700; margin-bottom: 2px; }
+  .r-card .r-role { font-size: 11px; color: var(--grey-mid); }
+
+  /* ── METRICS ── */
+  .metrics-section {
+    background: var(--green-light);
+    border: 1px solid #b8dfc7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 20px;
+  }
+  .metrics-section h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .metric-item {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 12px 14px;
+    border: 1px solid #cce8d8;
+  }
+  .metric-item .m-label { font-size: 11px; color: var(--grey-mid); margin-bottom: 4px; }
+  .metric-item .m-value { font-size: 13px; font-weight: 700; }
+
+  /* ── ASSESSMENT ── */
+  .assessment-box {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-top: 24px;
+  }
+  .assessment-box h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) { .assessment-grid { grid-template-columns: 1fr; } }
+
+  .assessment-col h5 { font-size: 13px; color: #ccc; margin-bottom: 8px; }
+  .assessment-col ul { list-style: none; padding: 0; }
+  .assessment-col ul li {
+    font-size: 13px;
+    padding: 3px 0;
+    color: #aaa;
+  }
+  .assessment-col ul li::before { content: "• "; color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: #666;
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 48px;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── PRINT ── */
+  @media print {
+    .cover { padding: 40px 32px; }
+    .week-card { page-break-inside: avoid; }
+    body { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="logo-line">House of Barber — Christchurch</div>
+  <h1>4-Week Staff Training<br><span>Curriculum</span></h1>
+  <div class="subtitle">Technical Skills · Customer Service · Brand Standards</div>
+  <div class="meta">
+    <div class="meta-item">
+      <span class="meta-label">Document Version</span>
+      <span class="meta-value">June 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Duration</span>
+      <span class="meta-value">28 Days / 4 Modules</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Team Size</span>
+      <span class="meta-value">6 Barbers</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Operating Days</span>
+      <span class="meta-value">Monday – Sunday</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-body">
+
+  <!-- OVERVIEW -->
+  <div class="section-header">
+    <div class="num">00</div>
+    <h2>Programme Overview</h2>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="oc-label">Week 1</div>
+      <div class="oc-value">Brand Standards &amp; Shop Culture</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Week 2</div>
+      <div class="oc-value">Technical Skills Mastery</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Week 3</div>
+      <div class="oc-value">Customer Service Excellence</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Week 4</div>
+      <div class="oc-value">Integration, Assessment &amp; Sign-Off</div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section-header">
+    <div class="num">01</div>
+    <h2>Team Participants</h2>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-box contractor">
+      <h3>Contractors</h3>
+      <ul>
+        <li>Ben <span class="badge c">Contractor</span></li>
+        <li>Zoli <span class="badge c">Contractor</span></li>
+        <li>Jay <span class="badge c">Contractor</span></li>
+      </ul>
+      <p style="font-size:12px;color:#777;margin-top:10px;line-height:1.5;">Attend all modules. Checkpoint sign-offs required for contractor agreement renewal reviews.</p>
+    </div>
+    <div class="team-box employee">
+      <h3>Employees</h3>
+      <ul>
+        <li>CJ <span class="badge e">Employee</span></li>
+        <li>Tetiana <span class="badge e">Employee</span></li>
+        <li>Jhon <span class="badge e">Employee</span></li>
+      </ul>
+      <p style="font-size:12px;color:#777;margin-top:10px;line-height:1.5;">Full mandatory participation. Checkpoint completion feeds into quarterly performance reviews.</p>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="section-header">
+    <div class="num">02</div>
+    <h2>House of Barber Non-Negotiables</h2>
+  </div>
+
+  <div class="principles-list">
+    <div class="principle">
+      <strong>Presence</strong>
+      On time, set up, and ready before the first client. No exceptions.
+    </div>
+    <div class="principle">
+      <strong>Presentation</strong>
+      Clean uniform, groomed appearance, station spotless between every client.
+    </div>
+    <div class="principle">
+      <strong>Consultation</strong>
+      Every client gets a seated consult before scissors or clippers touch hair.
+    </div>
+    <div class="principle">
+      <strong>Finish Standard</strong>
+      Every haircut signed off with a hot towel, razor line, and a mirror check.
+    </div>
+    <div class="principle">
+      <strong>Rebooking</strong>
+      Offer a rebook at every visit. Retention is a technical skill, not a sales pitch.
+    </div>
+    <div class="principle">
+      <strong>Brand Voice</strong>
+      How you speak about House of Barber online and offline is part of your standard.
+    </div>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="section-header">
+    <div class="num">03</div>
+    <h2>Weekly Modules</h2>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="wh-left">
+        <div class="wk-num">Week 01</div>
+        <h3>Brand Standards &amp;<br>Shop Culture</h3>
+        <div class="wk-theme">Foundation — Who We Are &amp; How We Show Up</div>
+      </div>
+      <div class="wh-right">
+        <div class="wk-focus-label">Pillars Covered</div>
+        <div class="wk-pillars">
+          <span class="pillar-tag">Shop Brand</span>
+          <span class="pillar-tag">Brand Standards</span>
+        </div>
+      </div>
+    </div>
+    <div class="week-body">
+
+      <div class="week-objectives">
+        <h4>Week Objectives</h4>
+        <ul>
+          <li>Every team member can articulate the House of Barber brand story in under 60 seconds</li>
+          <li>Station set-up and presentation standard understood and self-assessed daily</li>
+          <li>Non-negotiables memorised and demonstrated without prompting</li>
+          <li>Uniform, hygiene, and punctuality standards embedded</li>
+          <li>Social media conduct and brand voice guidelines signed off</li>
+        </ul>
+      </div>
+
+      <div class="days-grid">
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Monday</div>
+            <div class="day-tag">Day 1</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Brand Story &amp; Identity Session</div>
+            <ul class="checkpoint-list">
+              <li>Owner-led brand story walkthrough — origin, vision, values of House of Barber</li>
+              <li>Team signs and dates Brand Standards Agreement</li>
+              <li>First station set-up drill — timed, photographed as benchmark</li>
+              <li>Checkpoint: Each barber recites 3 core brand values without notes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Tuesday</div>
+            <div class="day-tag">Day 2</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Presentation &amp; Uniform Standards</div>
+            <ul class="checkpoint-list">
+              <li>Morning inspection drill — full uniform check before floor opens</li>
+              <li>Station cleanliness walkthrough: before, between, and after clients</li>
+              <li>Hygiene protocol review: tools, capes, hot towels, sanitisation order</li>
+              <li>Checkpoint: Pass/fail uniform inspection by end of shift</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Wednesday</div>
+            <div class="day-tag">Day 3</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">The Client Journey — Start to Finish</div>
+            <ul class="checkpoint-list">
+              <li>Walk-through of the full client flow: arrival → greeting → consult → service → finish → rebook → exit</li>
+              <li>Role-play in pairs: one barber, one client. Swap roles after 20 mins</li>
+              <li>Identify and name each touchpoint where brand impression is made</li>
+              <li>Checkpoint: Each person maps the client journey from memory on paper</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Thursday</div>
+            <div class="day-tag">Day 4</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Social Media &amp; Online Brand Conduct</div>
+            <ul class="checkpoint-list">
+              <li>Review House of Barber Instagram/TikTok/Facebook brand voice guide</li>
+              <li>What to post, what not to post — content do's and don'ts</li>
+              <li>How to tag, credit, and represent HOB across personal accounts</li>
+              <li>Checkpoint: Each barber submits one draft caption in HOB brand voice for review</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Friday</div>
+            <div class="day-tag">Day 5</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Competitor Awareness &amp; HOB Positioning</div>
+            <ul class="checkpoint-list">
+              <li>Group discussion: What makes HOB different from other Christchurch barbershops?</li>
+              <li>Price point rationale — why we charge what we charge</li>
+              <li>How to handle "I can get it cheaper elsewhere" conversations naturally</li>
+              <li>Checkpoint: Pair up and practise value-positioning conversation (2 mins each)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Saturday</div>
+            <div class="day-tag">Day 6</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Live Floor Application — Brand Standards On Busy Day</div>
+            <ul class="checkpoint-list">
+              <li>Owner or lead observes each barber's opening set-up and client greeting</li>
+              <li>Mid-shift debrief: one-on-one feedback on standards observed</li>
+              <li>Photo and video content capture (with client permission) — practice for Week 4</li>
+              <li>Checkpoint: Observation score card completed per barber (1–5 across 5 criteria)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Sunday</div>
+            <div class="day-tag">Day 7</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Week 1 Review &amp; Module Sign-Off</div>
+            <ul class="checkpoint-list">
+              <li>Group debrief: what landed, what needs reinforcement</li>
+              <li>Each barber self-rates on all Week 1 checkpoints (1–5 scale)</li>
+              <li>Owner countersigns Week 1 completion for each team member</li>
+              <li>Preview of Week 2: Technical Skills — what to prepare</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /days-grid -->
+
+      <div class="metrics-section">
+        <h4>Week 1 Success Metrics</h4>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="m-label">Brand Values Recall</div>
+            <div class="m-value">100% of team — no notes</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Uniform Inspection Pass Rate</div>
+            <div class="m-value">6/6 by Friday</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Brand Agreement Signed</div>
+            <div class="m-value">All 6 by Monday EOD</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Saturday Observation Score</div>
+            <div class="m-value">Avg ≥ 4.0 / 5</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Social Media Caption Submitted</div>
+            <div class="m-value">All 6 by Thursday EOD</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /week-body -->
+  </div><!-- /week-card -->
+
+  <!-- WEEK 2 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="wh-left">
+        <div class="wk-num">Week 02</div>
+        <h3>Technical Skills<br>Mastery</h3>
+        <div class="wk-theme">The Craft — Consistency, Precision, HOB Finish Standard</div>
+      </div>
+      <div class="wh-right">
+        <div class="wk-focus-label">Pillars Covered</div>
+        <div class="wk-pillars">
+          <span class="pillar-tag">Technical Skills</span>
+          <span class="pillar-tag">Brand Standards</span>
+        </div>
+      </div>
+    </div>
+    <div class="week-body">
+
+      <div class="week-objectives">
+        <h4>Week Objectives</h4>
+        <ul>
+          <li>Every barber demonstrates the HOB fade standard to owner sign-off level</li>
+          <li>Consultation before every service is instinctive, not prompted</li>
+          <li>Razor line and hot towel finish are completed on every single client</li>
+          <li>Product knowledge tested — each barber can recommend 3 products with rationale</li>
+          <li>Speed-to-quality ratio tracked — target: full service under 45 mins at HOB standard</li>
+        </ul>
+      </div>
+
+      <div class="days-grid">
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Monday</div>
+            <div class="day-tag">Day 8</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Consultation Mastery — The HOB Consult Framework</div>
+            <ul class="checkpoint-list">
+              <li>The 5-question consult: lifestyle, maintenance, face shape, history, finish preference</li>
+              <li>Practice consults on each other — 10 mins each, observed and timed</li>
+              <li>How to redirect a client who doesn't know what they want</li>
+              <li>Checkpoint: Conduct 3 live consults during the day. Owner reviews notes taken</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Tuesday</div>
+            <div class="day-tag">Day 9</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Fade Fundamentals — HOB Fade Standard</div>
+            <ul class="checkpoint-list">
+              <li>Owner demos HOB signature fade on a model or mannequin</li>
+              <li>Step-by-step breakdown: guard order, blend zones, skin fade execution</li>
+              <li>Each barber performs a fade — video recorded for review</li>
+              <li>Checkpoint: Peer review using the HOB Fade Scorecard (distributed by owner)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Wednesday</div>
+            <div class="day-tag">Day 10</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Scissor Work, Texture &amp; Top Styling</div>
+            <ul class="checkpoint-list">
+              <li>Point cutting, slide cutting, and texturising techniques — when and why</li>
+              <li>Scissor over comb transition from fade top — consistency across head shape types</li>
+              <li>Styling products: pomade, clay, wax, paste — demo and application practice</li>
+              <li>Checkpoint: Each barber demonstrates a full scissor finish on a peer or model</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Thursday</div>
+            <div class="day-tag">Day 11</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Beard &amp; Line-Up Standards</div>
+            <ul class="checkpoint-list">
+              <li>HOB beard shaping protocol: natural shape vs. sharp shape vs. skin fade beard</li>
+              <li>Razor work — straight razor safety, technique, and client communication</li>
+              <li>Line-up precision: temples, neckline, sideburns — the three zones</li>
+              <li>Checkpoint: Timed line-up on a model. Target: clean result in under 8 minutes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Friday</div>
+            <div class="day-tag">Day 12</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Product Knowledge &amp; Retail Recommendations</div>
+            <ul class="checkpoint-list">
+              <li>Full product range walkthrough: ingredient knowledge, hold levels, finish types</li>
+              <li>Matching product to hair type, lifestyle, and maintenance routine</li>
+              <li>Natural upsell language — "for your hair type, this would work best because…"</li>
+              <li>Checkpoint: Each barber passes a 10-question product knowledge quiz (≥ 8/10)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Saturday</div>
+            <div class="day-tag">Day 13</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Full-Service Speed &amp; Quality Drill on Live Clients</div>
+            <ul class="checkpoint-list">
+              <li>Every service timed from client seated to send-off. Target: ≤ 45 minutes</li>
+              <li>Owner or senior barber spot-checks consult, technique, and finish on 2 clients per barber</li>
+              <li>Video 1–2 services per barber (with permission) for review content and training archive</li>
+              <li>Checkpoint: Same-day feedback form completed per barber. Areas flagged before Sunday</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Sunday</div>
+            <div class="day-tag">Day 14</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Week 2 Technical Review &amp; Video Debrief</div>
+            <ul class="checkpoint-list">
+              <li>Group replay of recorded fades and services — constructive group analysis</li>
+              <li>Each barber identifies their top skill improvement from this week</li>
+              <li>Any barber not meeting HOB fade standard receives a 1:1 plan before Week 3</li>
+              <li>Owner sign-off on Week 2 completion — note any conditional passes</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="metrics-section">
+        <h4>Week 2 Success Metrics</h4>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="m-label">HOB Fade Sign-Off</div>
+            <div class="m-value">All 6 barbers by Sunday</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Product Quiz Score</div>
+            <div class="m-value">≥ 8/10 (all team)</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Average Service Time</div>
+            <div class="m-value">≤ 45 mins at HOB standard</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Consultation Before Every Service</div>
+            <div class="m-value">Observed 100% Saturday</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Hot Towel &amp; Razor Finish</div>
+            <div class="m-value">100% on Saturday floor</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="wh-left">
+        <div class="wk-num">Week 03</div>
+        <h3>Customer Service<br>Excellence</h3>
+        <div class="wk-theme">Retention Is a Skill — Relationships, Rebooking &amp; Revenue</div>
+      </div>
+      <div class="wh-right">
+        <div class="wk-focus-label">Pillars Covered</div>
+        <div class="wk-pillars">
+          <span class="pillar-tag">Client Retention</span>
+          <span class="pillar-tag">Client Acquisition</span>
+        </div>
+      </div>
+    </div>
+    <div class="week-body">
+
+      <div class="week-objectives">
+        <h4>Week Objectives</h4>
+        <ul>
+          <li>Rebooking offered at the end of every single service — no exceptions</li>
+          <li>Each barber can handle at least 3 client complaint or concern scenarios confidently</li>
+          <li>Review request language embedded naturally into the client send-off</li>
+          <li>Upsell conversations feel like advice, not sales pitches</li>
+          <li>Phone and social media inquiry response standards understood and practised</li>
+        </ul>
+      </div>
+
+      <div class="days-grid">
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Monday</div>
+            <div class="day-tag">Day 15</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">The Art of the Rebook — Making It Natural</div>
+            <ul class="checkpoint-list">
+              <li>Why rebooking is the single highest-value client retention action</li>
+              <li>HOB rebook script: timing, language, avoiding the hard-sell feel</li>
+              <li>Role-play: practise 3 different rebook conversations per barber</li>
+              <li>Checkpoint: Owner tests each barber with a "client who declines" scenario</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Tuesday</div>
+            <div class="day-tag">Day 16</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Handling Difficult Clients &amp; Service Recovery</div>
+            <ul class="checkpoint-list">
+              <li>The 4-step complaint framework: Hear → Acknowledge → Solve → Retain</li>
+              <li>Scenario training: unhappy with cut, long wait, price objection, comparison to competitor</li>
+              <li>When to escalate to owner — clear boundary and language defined</li>
+              <li>Checkpoint: Each barber navigates 2 difficult scenarios with owner or senior observing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Wednesday</div>
+            <div class="day-tag">Day 17</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Reviews, Referrals &amp; Word-of-Mouth Activation</div>
+            <ul class="checkpoint-list">
+              <li>How and when to ask for a Google/Facebook review without being awkward</li>
+              <li>Referral language: "If you've got mates who need a cut, we'd love to have them in"</li>
+              <li>Understanding how a 5-star review impacts HOB's client acquisition</li>
+              <li>Checkpoint: Each barber scripts and practises their own natural review-request line</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Thursday</div>
+            <div class="day-tag">Day 18</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Upselling With Integrity — Products &amp; Add-On Services</div>
+            <ul class="checkpoint-list">
+              <li>Difference between upselling and advising — how clients feel the difference</li>
+              <li>Identifying the natural moment to recommend a product or add-on during the service</li>
+              <li>The 3-step upsell: observe → connect to their problem → offer the solution</li>
+              <li>Checkpoint: Role-play upsell conversation. Observer scores naturalness 1–5</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Friday</div>
+            <div class="day-tag">Day 19</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Inquiry Handling — Phone, DMs, and Walk-Ins</div>
+            <ul class="checkpoint-list">
+              <li>HOB phone script: greeting, booking language, handling "how much?" questions</li>
+              <li>DM and social media inquiry response templates — tone, speed, close</li>
+              <li>Walk-in protocol: greeting, wait time communication, expectation management</li>
+              <li>Checkpoint: Timed DM response drill — team responds to 3 mock inquiries in under 5 mins</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Saturday</div>
+            <div class="day-tag">Day 20</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Full Customer Journey Live — Observe, Track, Refine</div>
+            <ul class="checkpoint-list">
+              <li>Owner tracks rebook rate across the day — target 70% or above</li>
+              <li>Monitor review requests: each barber asks at least 3 clients during the day</li>
+              <li>Note and flag any complaint or difficult interaction before it ends</li>
+              <li>Checkpoint: End-of-day rebook rate and review request tally submitted per barber</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Sunday</div>
+            <div class="day-tag">Day 21</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Week 3 Review — Numbers, Feedback &amp; Sign-Off</div>
+            <ul class="checkpoint-list">
+              <li>Review Saturday's rebook rate and review request outcomes as a group</li>
+              <li>Each barber shares one service interaction they are proud of this week</li>
+              <li>Owner identifies any gaps going into Week 4 integration</li>
+              <li>Owner sign-off on Week 3 — customer service standards confirmed</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="metrics-section">
+        <h4>Week 3 Success Metrics</h4>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="m-label">Saturday Rebook Rate</div>
+            <div class="m-value">≥ 70% of services</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Review Requests Made</div>
+            <div class="m-value">≥ 3 per barber Saturday</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Complaint Scenario Pass</div>
+            <div class="m-value">All 6 barbers — both scenarios</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Upsell Naturalness Score</div>
+            <div class="m-value">≥ 4/5 from peer observer</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">DM Response Time Drill</div>
+            <div class="m-value">Under 5 mins — all 3 mock DMs</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="wh-left">
+        <div class="wk-num">Week 04</div>
+        <h3>Integration, Assessment<br>&amp; Sign-Off</h3>
+        <div class="wk-theme">Putting It All Together — Full Standard, Content Creation &amp; Certification</div>
+      </div>
+      <div class="wh-right">
+        <div class="wk-focus-label">Pillars Covered</div>
+        <div class="wk-pillars">
+          <span class="pillar-tag">All Pillars</span>
+          <span class="pillar-tag">Content Creation</span>
+        </div>
+      </div>
+    </div>
+    <div class="week-body">
+
+      <div class="week-objectives">
+        <h4>Week Objectives</h4>
+        <ul>
+          <li>Every barber operates to full HOB standard without reminders or prompting</li>
+          <li>Each barber creates at least one piece of branded content (before/after or behind-the-scenes)</li>
+          <li>Formal assessment completed with written sign-off from owner</li>
+          <li>Any conditional passes from Weeks 1–3 resolved and signed off</li>
+          <li>Curriculum completion certificate issued to each team member</li>
+        </ul>
+      </div>
+
+      <div class="days-grid">
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Monday</div>
+            <div class="day-tag">Day 22</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Consolidation — Identify and Close Gaps</div>
+            <ul class="checkpoint-list">
+              <li>Owner reviews all checkpoint outcomes from Weeks 1–3 and highlights any open items</li>
+              <li>Each barber receives a personalised one-page summary: strengths + 2 focus areas</li>
+              <li>Peer accountability pairs assigned — each person supports one other all week</li>
+              <li>Checkpoint: Barbers rate their own confidence across all three modules (1–5)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Tuesday</div>
+            <div class="day-tag">Day 23</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Content Creation Workshop — Your Brand, Your Camera</div>
+            <ul class="checkpoint-list">
+              <li>HOB content creation brief: what types of posts perform, what the brand needs</li>
+              <li>Phone filming basics: angles, lighting at the station, before/after framing</li>
+              <li>Caption writing: hook line, value statement, call to action</li>
+              <li>Checkpoint: Each barber films one before/after or process clip during a service today</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Wednesday</div>
+            <div class="day-tag">Day 24</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Practice Assessment Day — Full Standard Observed</div>
+            <ul class="checkpoint-list">
+              <li>Owner observes minimum 2 full services per barber: consult, technique, finish, rebook</li>
+              <li>Assessment form used: Brand (W1), Technical (W2), Service (W3) all scored</li>
+              <li>Verbal feedback given after each assessment — no corrections during service</li>
+              <li>Checkpoint: Assessment form scores reviewed with each barber before end of day</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Thursday</div>
+            <div class="day-tag">Day 25</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">One-on-One Development Conversations</div>
+            <ul class="checkpoint-list">
+              <li>20-minute 1:1 between owner and each barber — strengths, gaps, next 90-day goals</li>
+              <li>Contractor: discussion on how training outcomes link to agreement terms</li>
+              <li>Employee: training record updated for HR file and performance review schedule</li>
+              <li>Checkpoint: Each barber writes one goal they commit to for the next 30 days</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Friday</div>
+            <div class="day-tag">Day 26</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Content Review &amp; Final Standard Polish</div>
+            <ul class="checkpoint-list">
+              <li>Review all content captured this week — select best clips for Ghost and Co handover</li>
+              <li>Final corrections on any barbers not yet at full HOB standard — focused drill</li>
+              <li>Team brainstorm: 5 content ideas each team member is excited to shoot next month</li>
+              <li>Checkpoint: Content clips reviewed and marked approved or reshoot required</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Saturday</div>
+            <div class="day-tag">Day 27</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Final Assessment Day — Full HOB Standard Floor</div>
+            <ul class="checkpoint-list">
+              <li>All barbers on full independent standard — no prompting, no reminders</li>
+              <li>Owner completes final formal assessment for each team member</li>
+              <li>Rebook rate and review request rate tracked for the day</li>
+              <li>Checkpoint: Final assessment score recorded. Any score below 3.5/5 triggers a follow-up plan</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="day-row">
+          <div class="day-label">
+            <div class="day-name">Sunday</div>
+            <div class="day-tag">Day 28</div>
+          </div>
+          <div class="day-content">
+            <div class="focus">Graduation — Curriculum Completion &amp; Celebration</div>
+            <ul class="checkpoint-list">
+              <li>Owner presents each barber with their 4-week assessment summary and sign-off</li>
+              <li>Group discussion: what the team commits to maintaining going forward</li>
+              <li>Announce re-assessment schedule: 30-day spot check for all barbers</li>
+              <li>Team photo for HOB social media — mark the milestone publicly</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="assessment-box">
+        <h4>Final Assessment Scorecard — Criteria &amp; Weighting</h4>
+        <div class="assessment-grid">
+          <div class="assessment-col">
+            <h5>Brand Standards (Week 1) — 25%</h5>
+            <ul>
+              <li>Brand values recall</li>
+              <li>Uniform and presentation</li>
+              <li>Station set-up standard</li>
+              <li>Brand voice understanding</li>
+            </ul>
+          </div>
+          <div class="assessment-col">
+            <h5>Technical Skills (Week 2) — 40%</h5>
+            <ul>
+              <li>HOB fade execution</li>
+              <li>Scissor work and finish</li>
+              <li>Beard and line-up precision</li>
+              <li>Product knowledge</li>
+            </ul>
+          </div>
+          <div class="assessment-col">
+            <h5>Customer Service (Week 3) — 25%</h5>
+            <ul>
+              <li>Consultation quality</li>
+              <li>Rebook offer made</li>
+              <li>Review request attempted</li>
+              <li>Complaint handling capability</li>
+            </ul>
+          </div>
+          <div class="assessment-col">
+            <h5>Content Creation (Week 4) — 10%</h5>
+            <ul>
+              <li>At least 1 approved content piece</li>
+              <li>Caption in HOB brand voice</li>
+              <li>Filming basics demonstrated</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-section">
+        <h4>Week 4 &amp; Programme Success Metrics</h4>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="m-label">Programme Completion Rate</div>
+            <div class="m-value">6/6 by Sunday Week 4</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Final Assessment Avg Score</div>
+            <div class="m-value">≥ 4.0 / 5.0</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Saturday Rebook Rate</div>
+            <div class="m-value">≥ 75% (up from Week 3 target)</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">Approved Content Pieces</div>
+            <div class="m-value">At least 6 (1 per barber)</div>
+          </div>
+          <div class="metric-item">
+            <div class="m-label">30-Day Spot Check</div>
+            <div class="m-value">Scheduled before programme ends</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESPONSIBLE PARTIES -->
+  <div class="section-header">
+    <div class="num">04</div>
+    <h2>Roles &amp; Responsibilities</h2>
+  </div>
+
+  <div class="responsible-grid">
+    <div class="r-card">
+      <div class="r-name">Owner</div>
+      <div class="r-role">Programme Lead</div>
+      <p style="font-size:12px;margin-top:8px;color:#555;line-height:1.5;">Facilitates all Monday and Sunday sessions. Conducts all formal assessments. Issues sign-offs. Manages 1:1 development conversations.</p>
+    </div>
+    <div class="r-card">
+      <div class="r-name">Ben, Zoli, Jay</div>
+      <div class="r-role">Contractors</div>
+      <p style="font-size:12px;margin-top:8px;color:#555;line-height:1.5;">Full attendance and checkpoint completion. Outcomes documented for contractor agreement purposes. Responsible for their own daily self-assessment records.</p>
+    </div>
+    <div class="r-card">
+      <div class="r-name">CJ, Tetiana, Jhon</div>
+      <div class="r-role">Employees</div>
+      <p style="font-size:12px;margin-top:8px;color:#555;line-height:1.5;">Mandatory participation. Completion records filed in HR documentation. Outcomes feed quarterly performance review. Peer accountability pairs active in Week 4.</p>
+    </div>
+    <div class="r-card">
+      <div class="r-name">Ghost and Co</div>
+      <div class="r-role">Marketing Partner</div>
+      <p style="font-size:12px;margin-top:8px;color:#555;line-height:1.5;">Receives all approved content from Week 4 content shoot. Implements brand voice guidelines from Week 1 social media session. Aligns content calendar with training milestones.</p>
+    </div>
+  </div>
+
+</div><!-- /doc-body -->
+
+<footer>
+  <p>House of Barber — Christchurch &nbsp;|&nbsp; <span>Training Curriculum June 2026</span> &nbsp;|&nbsp; Confidential — For Internal Use &amp; Ghost and Co Only</p>
+</footer>
+
+</body>
+</html>
